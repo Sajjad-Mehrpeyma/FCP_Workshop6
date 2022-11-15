@@ -18,5 +18,3 @@ def FindPrimes(n):
             result.append(number)
 
     return(result)
-
-print(FindPrimes(100))
