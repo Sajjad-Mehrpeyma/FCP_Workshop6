@@ -4,7 +4,7 @@ import os
 url = "https://api.telegram.org/bot[token]/"
 
 from flask import Response
-from flask import request
+from flask import Request
 from flask import Flask
 
 app = Flask(__name__)
