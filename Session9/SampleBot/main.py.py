@@ -30,8 +30,8 @@ def sendMessage(chat_id, text, notif=False):
 @app.route('/', methods=['POST', 'GET'])
 
 def index():
-    if request.method == 'POST':
-        msg = request.get_json()
+    if Request.method == 'POST':
+        msg = Request.get_json()
         chat_id = get_chat_id(msg)
         text = msg['message'].get('text', '')
         if text == '/start':
@@ -43,6 +43,7 @@ def index():
                 contacts[username] = []
             contact = text.split(maxsplit=1)[1]
             contacts[username].append(contact)
+            sendMessage(chat_id, 'New contact added.')
             write_json(contacts)
         elif text == 'list':
             contacts = read_json()
